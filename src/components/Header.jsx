@@ -20,7 +20,7 @@ export const Header = () => {
         <NavBar />
 
         <div className="w-full ">
-          <h1 className="text-4xl lg:text-7xl font-bold text-white">
+          <h1 className="text-4xl 2xl:text-9xl font-bold text-white">
             Rauw <br />
             Alejandro
           </h1>

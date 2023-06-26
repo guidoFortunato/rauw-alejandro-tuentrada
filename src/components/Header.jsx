@@ -4,8 +4,7 @@ export const Header = () => {
   return (
     <>
       <header
-        className={`flex flex-col justify-between bg-1 bg-no-repeat bg-cover bg-end z-40 h-screen w-screen`}
-        style={{ padding: "20px" }}
+        className={`flex flex-col justify-between p-5 bg-1 bg-no-repeat bg-cover bg-end z-40 h-screen`}
         // style={{
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
         // }}

@@ -4,12 +4,13 @@ export const Header = () => {
   return (
     <>
       <header
-        className={`flex flex-col justify-between p-5 bg-1 bg-no-repeat bg-cover bg-end z-40 h-screen`}
+        className={`bg-1 bg-no-repeat bg-cover bg-end z-40 h-screen`}
+      
         // style={{
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
         // }}
       >
-        <div className="bg-img bg-no-repeat bg-cover lg:bg-contain bg-botom bg-left lg:bg-right  h-full flex flex-col justify-between "   style={{ padding: "20px" }}>
+        <div className="bg-img p-5 bg-no-repeat bg-cover lg:bg-contain bg-botom bg-left lg:bg-right  h-full flex flex-col justify-between container mx-auto">
           
         {/* <div
           className={`min-h-[50vh] flex justify-center items-start flex-col `}

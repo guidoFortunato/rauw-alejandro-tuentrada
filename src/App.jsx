@@ -1,7 +1,9 @@
+import { Header } from "./components/";
+
 function App() {
   return (
     <>
-      <div>Proyecto</div>
+        <Header />
     </>
   );
 }

@@ -15,4 +15,10 @@ body{
 .bg-2{
   background: rgb(116,6,159);
   background: linear-gradient(0deg, rgba(116,6,159,1) 0%, rgba(252,137,55,1) 100%);
+
+}
+
+.bg-img {
+  background-image: url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png");
+
 }

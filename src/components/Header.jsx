@@ -4,12 +4,14 @@ export const Header = () => {
   return (
     <>
       <header
-        className={`flex flex-col justify-between bg-1 bg-no-repeat bg-cover bg-end z-40 h-screen w-screen`}
-        style={{ padding: "20px" }}
+        className={`bg-1 bg-no-repeat bg-cover bg-end z-40 h-screen w-screen`}
+      
         // style={{
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
         // }}
       >
+        <div className="bg-img bg-no-repeat bg-cover lg:bg-contain bg-botom bg-left lg:bg-right  h-full flex flex-col justify-between "   style={{ padding: "20px" }}>
+          
         {/* <div
           className={`min-h-[50vh] flex justify-center items-start flex-col `}
           >
@@ -17,13 +19,13 @@ export const Header = () => {
         </div> */}
         <NavBar />
 
-        <div className="w-full">
-          <h1 className="text-7xl lg:text-9xl font-bold text-white">
+        <div className="w-full ">
+          <h1 className="text-4xl lg:text-7xl font-bold text-white">
             Rauw <br />
             Alejandro
           </h1>
-          <p className="text-4xl text-white">25 y 26 de Agosto</p>
-          <p className="text-4xl text-white">Estadio Vélez Sarsfield</p>
+          <p className="text-2xl text-white">25 y 26 de Agosto</p>
+          <p className="text-2xl text-white">Estadio Vélez Sarsfield</p>
         </div>
         <div className="w-full">
           <button
@@ -32,6 +34,7 @@ export const Header = () => {
           >
             Próximamente
           </button>
+        </div>
         </div>
       </header>
     </>

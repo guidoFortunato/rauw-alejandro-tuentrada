@@ -21,7 +21,7 @@ export const NavBar = () => {
 
   return (
     <nav style={{padding:"20px"}}
-      className={`border-gray-200 dark:bg-gray-900 top-0 z-30  lg:pb-0 bg-black flex justify-center`}
+      className={` nav border-gray-200 dark:bg-gray-900 top-0 z-30  lg:pb-0 bg-black flex justify-center`}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between">
         <a href="https://tuentrada.com/" target="_blank" rel="noreferrer" className="flex items-center">

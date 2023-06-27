@@ -1,10 +1,17 @@
-import { DetalleConcierto, Preventas } from "./"
+import { DetalleSpotify ,DetalleConcierto, Preventas, Footer } from "./"
+
 
 export const Main = () => {
   return (
-    <main className="bg-2">
+    <main >
+      <div className="bg-2">
+       <Preventas />
       <DetalleConcierto />
-      <Preventas />
+      </div>
+      <div className="bg-1">
+      <DetalleSpotify />
+      <Footer />
+      </div>
     </main>
   )
 }

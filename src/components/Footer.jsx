@@ -8,7 +8,7 @@ export const Footer = () => {
       />{" "}
       <hr />
       <div className="grid grid-cols-1 lg:grid-cols-3  pt-10 text-center">
-        <div className="grid grid-cols-3 pt-2">
+        <div className="flex justify-evenly pt-2">
           <a href="https://instagram.com/tuentrada">
             {" "}
             <svg
@@ -51,14 +51,14 @@ export const Footer = () => {
           </a>
         </div>
 
-        <a
+        <a className="pt-5"
           href="https://www.tuentrada.com/terminosycondiciones/"
           target="blank"
         >
           <p>Términos y condiciones</p>
         </a>
-        <a href="https://www.tuentrada.com/wallet/" target="blank">
-          {" "}
+        <a className="pt-5" href="https://www.tuentrada.com/wallet/" target="blank">
+         
           <p>TuEntrada Wallet</p>
         </a>
       </div>

@@ -2,13 +2,13 @@
 export const CardsPreventa = ({ src, text }) => {
   return (
     <div className="max-w-xs  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-      <a href="#">
+      {/* <a href="#">
         <img
           className="rounded-t-lg"
           src={src}
           alt={text}
         />
-      </a>
+      </a> */}
       <div className="p-5">
         
         <p className="mb-3 text-2xl font-normal text-gray-700 dark:text-gray-400">

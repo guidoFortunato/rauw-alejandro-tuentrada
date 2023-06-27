@@ -24,7 +24,7 @@ export const Preventas = () => {
       
     }, 5000);
     return () => clearInterval(interval);
-  }, [time]);
+  }, [button, time, timestamp]);
 
   return (
     // <section className="text-white p-5 container mx-auto py-10 lg:py-40">

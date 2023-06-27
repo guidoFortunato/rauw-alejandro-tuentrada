@@ -18,7 +18,6 @@ body{
 
 }
 
-.bg-img {
-  background-image: url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png");
-
+.nav {
+background-image: linear-gradient(rgba(0, 0, 0, 0.861),rgba(39, 2, 2, 0.651)) , url(https://www.tuentrada.com/newsletter/footer/images/background/page-title-bg.jpg);
 }

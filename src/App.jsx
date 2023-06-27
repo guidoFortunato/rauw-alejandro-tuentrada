@@ -1,8 +1,9 @@
-import { Header, Main } from "./components/";
+import { NavBar, Header, Main } from "./components/";
 
 function App() {
   return (
     <>
+    <NavBar />
         <Header />
         <Main />
     </>

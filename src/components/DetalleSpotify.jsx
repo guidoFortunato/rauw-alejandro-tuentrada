@@ -4,7 +4,7 @@ export const DetalleSpotify = () => {
   return (
     <section className="text-white p-5 container mx-auto py-10 lg:py-20">
       <h3 className="text-2xl lg:text-4xl pb-10">Escúchalas en Spotify</h3>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3 my-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 my-5">
         <div className="space-y-3">
           <iframe
             style={{ borderRadius: '12px' }}

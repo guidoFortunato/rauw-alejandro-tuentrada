@@ -3,7 +3,7 @@ import { DetalleSpotify, DetalleConcierto, Preventas, Footer } from ".";
 export const MainEvent = () => {
   return (
     <main>
-      <div className="bg-2">
+      <div className="bg-2 ">
         <Preventas />
         <DetalleConcierto />
       </div>

@@ -1,6 +1,31 @@
 // import { CardsPreventa } from "./CardsPreventa";
 
+import { useEffect } from "react";
+import { useState } from "react";
+
 export const Preventas = () => {
+  const [button, setButton] = useState(false);
+  const [time, setTime] = useState(Date.now());
+
+  const fecha = new Date("June 27, 2023 17:58:00");
+  const timestamp = fecha.getTime();
+
+  useEffect(() => {
+    // if (!button) return;
+    const interval = setInterval(() => {
+      if (Date.now() < timestamp) {
+        setTime(Date.now());
+        console.log('set time a date')
+      }
+      else {
+        setButton(false);
+        console.log('button a false')
+      }
+      
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [time]);
+
   return (
     // <section className="text-white p-5 container mx-auto py-10 lg:py-40">
     //   <div className="grid grid-cols-1 justify-items-center">
@@ -27,8 +52,19 @@ export const Preventas = () => {
               alt=""
             />
             <hr />
-            <button className="bg-white text-black font-bold py-2 px-6 rounded-full">
+            <button
+              className={`${
+                button && "hidden"
+              } bg-white text-black font-bold py-2 px-6 rounded-full`}
+            >
               Próximamente
+            </button>
+            <button
+              className={`${
+                !button && "hidden"
+              } bg-white text-black font-bold py-2 px-6 rounded-full`}
+            >
+              Comprar
             </button>
           </div>
         </div>

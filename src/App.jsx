@@ -3,9 +3,9 @@ import { NavBar, Header, MainEvent } from "./components/";
 function App() {
   return (
     <>
-    <NavBar />
-        <Header />
-        <MainEvent />
+      <NavBar />
+      <Header />
+      <MainEvent />
     </>
   );
 }

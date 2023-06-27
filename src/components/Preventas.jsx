@@ -1,4 +1,4 @@
-import { CardsPreventa } from "./CardsPreventa";
+// import { CardsPreventa } from "./CardsPreventa";
 
 export const Preventas = () => {
   return (
@@ -17,16 +17,22 @@ export const Preventas = () => {
     //   </div>
     // </section>
     <section className="text-white container mx-auto">
-    <section className="text-white p-5 container mx-auto py-10 lg:py-20">
-      <h3 className="text-2xl lg:text-4xl pb-10">Preventa Exclusiva</h3>
-      <div className="my-5">
-        <div className="space-y-10">
-          <img className="w-4/6 sm:w-3/12" src="https://tuentrada.com/concierto/rauw-alejandro/Spotify_Logo_RGB_White.png" alt="" />
-          <hr />
-          <button className="bg-white text-black font-bold py-2 px-6 rounded-full">Próximamente</button>
+      <section className="text-white p-5 container mx-auto py-10 lg:py-20">
+        <h3 className="text-2xl lg:text-4xl pb-10">Preventa Exclusiva</h3>
+        <div className="my-5">
+          <div className="space-y-10">
+            <img
+              className="w-4/6 sm:w-3/12"
+              src="https://tuentrada.com/concierto/rauw-alejandro/Spotify_Logo_RGB_White.png"
+              alt=""
+            />
+            <hr />
+            <button className="bg-white text-black font-bold py-2 px-6 rounded-full">
+              Próximamente
+            </button>
+          </div>
         </div>
-      </div>
+      </section>
     </section>
-  </section>
   );
 };

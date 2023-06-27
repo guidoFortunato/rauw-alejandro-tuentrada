@@ -1,23 +1,7 @@
-import { useEffect, useState } from "react";
+
 
 export const NavBar = () => {
-  const [navbar, setNavbar] = useState(false);
-
-  const changeBackground = () => {
-    if (window.scrollY >= 1) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", changeBackground);
-
-    return () => {
-      window.removeEventListener("scroll", changeBackground);
-    };
-  }, []);
+  
 
   return (
     <nav style={{padding:"20px"}}

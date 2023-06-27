@@ -1,11 +1,11 @@
-import { NavBar, Header, Main } from "./components/";
+import { NavBar, Header, MainEvent } from "./components/";
 
 function App() {
   return (
     <>
     <NavBar />
         <Header />
-        <Main />
+        <MainEvent />
     </>
   );
 }

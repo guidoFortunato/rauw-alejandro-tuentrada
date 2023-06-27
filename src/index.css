@@ -9,7 +9,7 @@ body{
 
 .bg-1{
  
-    background-image:linear-gradient(rgba(66, 3, 3, 0.774), rgba(49, 3, 3, 0.747), rgba(0, 0, 0, 0.728)), url(https://tuentrada.com/concierto/rauw-alejandro/estrellas.jpeg);
+    background-image:linear-gradient(rgba(66, 3, 3, 0.774), rgba(49, 3, 3, 0.747), rgba(0, 0, 0, 0.728)), url("https://tuentrada.com/concierto/rauw-alejandro/estrellas.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   
@@ -18,13 +18,13 @@ body{
 .bg-2{
 
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.728), rgba(49, 3, 3, 0.747), rgba(66, 3, 3, 0.774)), url(https://tuentrada.com/concierto/rauw-alejandro/estrellas.jpeg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.728), rgba(49, 3, 3, 0.747), rgba(66, 3, 3, 0.774)), url("https://tuentrada.com/concierto/rauw-alejandro/estrellas.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .nav {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.728), rgba(1, 0, 0, 0.747), rgba(3, 1, 0, 0.774)), url(https://tuentrada.com/concierto/rauw-alejandro/estrellas.jpeg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.728), rgba(1, 0, 0, 0.747), rgba(3, 1, 0, 0.774)), url("https://tuentrada.com/concierto/rauw-alejandro/estrellas.jpg");
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;
 }

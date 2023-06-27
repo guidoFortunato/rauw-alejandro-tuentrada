@@ -1,6 +1,6 @@
 export * from "./DetalleConcierto";
 export * from "./Header";
-export * from "./Main";
+export * from "./MainEvent";
 export * from "./NavBar";
 export * from "./Preventas";
 export * from "./DetalleSpotify";

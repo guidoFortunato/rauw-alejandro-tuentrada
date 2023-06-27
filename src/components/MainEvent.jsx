@@ -1,7 +1,7 @@
-import { DetalleSpotify ,DetalleConcierto, Preventas, Footer } from "./"
+import { DetalleSpotify ,DetalleConcierto, Preventas, Footer } from "."
 
 
-export const Main = () => {
+export const MainEvent = () => {
   return (
     <main >
       <div className="bg-2">

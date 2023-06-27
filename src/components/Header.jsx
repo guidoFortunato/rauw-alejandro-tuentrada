@@ -1,12 +1,9 @@
-import { useState } from "react";
-import { NavBar } from "./NavBar";
+
 
 export const Header = () => {
-  const [boton, setBoton] = useState(false);
 
-  setTimeout(() => {
-    setBoton(true)
-  }, 3000);
+
+
 
   // const [showButton, setShowButton] = useState(false);
   // const targetDate = new Date('2023-06-27');
@@ -27,7 +24,7 @@ export const Header = () => {
   return (
     <>
       <header
-        className={`bg-1 bg-no-repeat bg-cover bg-end z-40 relative`}
+        className={`bg-1 bg-no-repeat bg-cover bg-end z-40`}
       
         // style={{
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
@@ -46,20 +43,7 @@ export const Header = () => {
       
 
        
-        <div className="w-full absolute bottom-10">
-          <button
-            type="button"
-            className={`${ boton && "hidden" } py-2.5 h-16 px-5 mr-2 mb-2 text-base font-medium  focus:outline-none text-white rounded-full border border-gray-200 bg-transparent mt-3`}
-          >
-            Próximamente
-          </button>
-          <button
-            type="button"
-            className={`${ !boton && "hidden" } py-2.5 h-16 px-5 mr-2 mb-2 text-base font-medium  focus:outline-none text-white rounded-full border border-gray-200 bg-transparent mt-3`}
-          >
-            Comprar
-          </button>
-        </div>
+    
       
       </header>
     </>

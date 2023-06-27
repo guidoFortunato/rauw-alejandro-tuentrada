@@ -1,17 +1,16 @@
-import { DetalleSpotify ,DetalleConcierto, Preventas, Footer } from "."
-
+import { DetalleSpotify, DetalleConcierto, Preventas, Footer } from ".";
 
 export const MainEvent = () => {
   return (
-    <main >
+    <main>
       <div className="bg-2">
-       <Preventas />
-      <DetalleConcierto />
+        <Preventas />
+        <DetalleConcierto />
       </div>
       <div className="bg-1">
-      <DetalleSpotify />
-      <Footer />
+        <DetalleSpotify />
+        <Footer />
       </div>
     </main>
-  )
-}
+  );
+};

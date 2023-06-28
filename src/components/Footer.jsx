@@ -1,11 +1,14 @@
 export const Footer = () => {
   return (
     <section className="text-white p-5 container mx-auto py-10 lg:py-20 ">
+      <a href="https://www.tuentrada.com/" target="_blank" rel="noreferrer">
       <img
         src="https://www.tuentrada.com/img/logo_tuboleta_menu.svg"
         style={{ width: "200px", paddingBottom: "20px" }}
         alt=""
       />{" "}
+        
+      </a>
       <hr />
       <div className="grid grid-cols-1 lg:grid-cols-3  pt-10 text-start md:text-center">
         <div className="flex justify-start md:justify-center pt-2">

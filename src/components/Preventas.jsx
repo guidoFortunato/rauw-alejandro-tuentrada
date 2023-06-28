@@ -3,30 +3,44 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
-const dateToCompare = new Date("2023-06-27T19:59:00");
+const dateToCompare = new Date("2023-06-28T13:45:00");
 
 export const Preventas = () => {
-  const [button, setButton] = useState(false);
+  const [button, setButton] = useState(Date.now() >= dateToCompare.getTime());
+  // const [button, setButton] = useState(false);
   const [ , setTime] = useState(Date.now());
 
+  // console.log(button)
 
   useEffect(() => {
+    // console.log('inicia uef')
     if (button) return;
-    const interval = setInterval(checkDate, 5000);
+    // const interval = setInterval(checkDate, 5000);
+    const interval = setInterval(() => {
+      if (Date.now() < dateToCompare.getTime()) {
+        setTime(Date.now());
+        // console.log('setTime')
+      }
+      else {
+        setButton(true);
+        // console.log('setButton')
+        clearInterval(interval);
+      }
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
 
-  const checkDate = () => {
-    if (Date.now() < dateToCompare.getTime()) {
-      setTime(Date.now());
-      console.log('setTime')
-    }
-    else {
-      setButton(true);
-      console.log('setButton')
-    }
-  };
+  // const checkDate = () => {
+  //   if (Date.now() < dateToCompare.getTime()) {
+  //     setTime(Date.now());
+  //     console.log('setTime')
+  //   }
+  //   else {
+  //     setButton(true);
+  //     console.log('setButton')
+  //   }
+  // };
 
 
   return (
@@ -49,7 +63,7 @@ export const Preventas = () => {
         <h3 className="text-2xl lg:text-4xl pb-10">Venta general</h3>
         <div className="my-5">
           <div className="space-y-10">
-           <p className=" text-base lg:text-lg">¡No te pierdas el concierto de Rauw Alejandro en Parque Saarmiento el 4 de noviembre de 2023! La venta general estará disponible próximamente. ¡Prepárate para disfrutar de su increíble música y asegura tu lugar en este evento imperdible!</p>
+           <p className=" text-base lg:text-lg">¡No te pierdas el concierto de Rauw Alejandro en Parque Saarmiento el 4 de noviembre de 2023! <br />La venta general estará disponible próximamente. <br /> ¡Prepárate para disfrutar de su increíble música y asegura tu lugar en este evento imperdible!</p>
             <hr />
             <button
               className={`${

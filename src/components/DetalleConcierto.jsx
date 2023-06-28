@@ -7,7 +7,7 @@ export const DetalleConcierto = () => {
           <h5 className="text-base lg:text-lg">Dirección</h5>
           <hr />
           <p className="text-base lg:text-lg">
-            Parque Saarmiento
+            Parque Sarmiento
           </p>
           <p className="text-base lg:text-lg">
           Av. Dr. Ricardo Balbín 4750

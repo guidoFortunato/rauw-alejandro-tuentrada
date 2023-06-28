@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { BotonComprar, BotonProximamente } from "./";
 
-const dateToCompare = new Date("2023-06-28T15:00:00");
+const dateToCompare = new Date("2023-06-28T16:00:00");
 
 export const Preventas = () => {
   const [button, setButton] = useState(Date.now() >= dateToCompare.getTime());
@@ -62,7 +62,7 @@ export const Preventas = () => {
         <div className="my-5">
           <div className="space-y-10">
             <p className=" text-base lg:text-lg">
-              ¡No te pierdas el concierto de Rauw Alejandro en Parque Saarmiento
+              ¡No te pierdas el concierto de Rauw Alejandro en Parque Sarmiento
               el 4 de noviembre de 2023! <br />
               La venta general estará disponible próximamente. <br /> ¡Prepárate
               para disfrutar de su increíble música y asegura tu lugar en este

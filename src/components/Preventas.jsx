@@ -18,14 +18,10 @@ export const Preventas = () => {
     // </section>
     <section className="text-white container mx-auto">
       <section className="text-white p-5 container mx-auto py-10 lg:py-20">
-        <h3 className="text-2xl lg:text-4xl pb-10">Preventa Exclusiva</h3>
+        <h3 className="text-2xl lg:text-4xl pb-10">Venta general</h3>
         <div className="my-5">
           <div className="space-y-10">
-            <img
-              className="w-4/6 sm:w-3/12"
-              src="https://tuentrada.com/concierto/rauw-alejandro/Spotify_Logo_RGB_White.png"
-              alt=""
-            />
+           <p className=" text-base lg:text-lg">¡No te pierdas el concierto de Rauw Alejandro en Parque Saarmiento el 4 de noviembre de 2023! La venta general estará disponible próximamente. ¡Prepárate para disfrutar de su increíble música y asegura tu lugar en este evento imperdible!</p>
             <hr />
             <button className="bg-white text-black font-bold py-2 px-6 rounded-full">
               Próximamente

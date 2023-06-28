@@ -17,7 +17,7 @@ export const DetalleSpotify = () => {
             loading="lazy"
           ></iframe>
           <hr />
-          <p>Saturno</p>
+          <p className='text-base lg:text-lg'>Saturno</p>
         </div>
         <div className="space-y-3">
           <iframe
@@ -26,12 +26,13 @@ export const DetalleSpotify = () => {
             width="100%"
             height="152"
             frameBorder="0"
+          
             allowFullScreen
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
           <hr />
-          <p>Punto 40</p>
+          <p className='text-base lg:text-lg'>Punto 40</p>
         </div>
         <div className="space-y-3">
           <iframe
@@ -45,7 +46,7 @@ export const DetalleSpotify = () => {
             loading="lazy"
           ></iframe>
           <hr />
-          <p>Más de una vez</p>
+          <p className='text-base lg:text-lg'>Más de una vez</p>
         </div>
         <div className="space-y-3">
           <iframe
@@ -59,7 +60,7 @@ export const DetalleSpotify = () => {
             loading="lazy"
           ></iframe>
           <hr />
-          <p>Lejos del cielo</p>
+          <p className='text-base lg:text-lg'>Lejos del cielo</p>
         </div>
       </div>
     </section>

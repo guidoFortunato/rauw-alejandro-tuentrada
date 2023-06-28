@@ -4,7 +4,7 @@ export const DetalleConcierto = () => {
       <h3 className="text-2xl lg:text-4xl pb-10">Detalle del concierto</h3>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 my-5">
         <div className="space-y-3">
-          <h5 className="text-base lg:text-lg">Dirección</h5>
+          <h5 className="text-xl lg:text-2xl">Dirección</h5>
           <hr />
           <p className="text-base lg:text-lg">
             Parque Sarmiento
@@ -13,15 +13,15 @@ export const DetalleConcierto = () => {
           Av. Dr. Ricardo Balbín 4750
           </p>
         </div>
-        <div className="space-y-3">
-          <h5 className="text-base lg:text-lg">Fecha y hora</h5>
+        <div className="space-y-3  pt-10 lg:pt-0">
+          <h5 className="text-xl lg:text-2xl">Fecha y hora</h5>
           <hr />
           <p className="text-base lg:text-lg">4 de Noviembre 2023</p>
           <p className="text-base lg:text-lg">21:00 hs</p>
           
         </div>
-        <div className="space-y-3">
-          <h5 className="text-base lg:text-lg">Ubicaciones y precios</h5>
+        <div className="space-y-3  pt-10 lg:pt-0">
+          <h5 className="text-xl lg:text-2xl">Ubicaciones y precios</h5>
           <hr />
           <p className="text-base lg:text-lg"><a target="blank" href="https://www.tuentrada.com/concierto/rauw-alejandro/plano.jpg" className="underline inline-block"> Ver mapa</a></p> 
          

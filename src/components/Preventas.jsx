@@ -3,28 +3,31 @@
 import { useEffect } from "react";
 import { useState } from "react";
 
+const dateToCompare = new Date("2023-06-27T19:59:00");
+
 export const Preventas = () => {
   const [button, setButton] = useState(false);
-  const [time, setTime] = useState(Date.now());
+  const [ , setTime] = useState(Date.now());
 
-  const fecha = new Date("June 27, 2023 17:58:00");
-  const timestamp = fecha.getTime();
 
   useEffect(() => {
-    // if (!button) return;
-    const interval = setInterval(() => {
-      if (Date.now() < timestamp) {
-        setTime(Date.now());
-        console.log('set time a date')
-      }
-      else {
-        setButton(false);
-        console.log('button a false')
-      }
-      
-    }, 5000);
+    if (button) return;
+    const interval = setInterval(checkDate, 5000);
     return () => clearInterval(interval);
-  }, [button, time, timestamp]);
+  }, []);
+
+
+  const checkDate = () => {
+    if (Date.now() < dateToCompare.getTime()) {
+      setTime(Date.now());
+      console.log('setTime')
+    }
+    else {
+      setButton(true);
+      console.log('setButton')
+    }
+  };
+
 
   return (
     // <section className="text-white p-5 container mx-auto py-10 lg:py-40">

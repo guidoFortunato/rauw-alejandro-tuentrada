@@ -22,7 +22,7 @@ export const DetalleSpotify = () => {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-          <hr />
+          <hr className="border border-white  " />
           <p className='text-base lg:text-lg'>Saturno</p>
         </div>
         <div className="space-y-3">
@@ -42,7 +42,7 @@ export const DetalleSpotify = () => {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-          <hr />
+          <hr className="border border-white  " />
           <p className='text-base lg:text-lg'>Punto 40</p>
         </div>
         <div className="space-y-3">
@@ -61,7 +61,7 @@ export const DetalleSpotify = () => {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-          <hr />
+          <hr className="border border-white  " />
           <p className='text-base lg:text-lg'>Más de una vez</p>
         </div>
         <div className="space-y-3">
@@ -80,7 +80,7 @@ export const DetalleSpotify = () => {
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-          <hr />
+          <hr className="border border-white  " />
           <p className='text-base lg:text-lg'>Lejos del cielo</p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
 export const CardsPreventa = ({  text , precio}) => {
   return (
-    <div className="max-w-xs  bg-transparent border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-10">
+    <div className="max-w-xs  bg-transparent border-2 border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-10">
       <a href="#">
         {/* <img
           className="rounded-t-lg"
@@ -22,7 +22,7 @@ export const CardsPreventa = ({  text , precio}) => {
 
         </a> */} 
         <p className="text-2xl text-white">{precio}</p>
-        <hr className="mt-3 border border-white " />
+        <hr className="mt-2 border border-white   " />
         <div className="flex justify-center h-10 items-center">
         <p className="text-sm lg:text-md text-white h-1.5 whitespace-nowrap p-1 md:p-10 ">Valor de entrada  Anticipada</p>
 

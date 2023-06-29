@@ -68,16 +68,16 @@ export const Preventas = () => {
               ¡No te pierdas el concierto de Rauw Alejandro en Parque Sarmiento el 4 de noviembre de 2023! <br />
               La venta general estará disponible próximamente.
             </p>
-            <hr />
+            <hr className="border border-white  " />
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 justify-items-center xl:gap-0 text-center my-10">
-          <div className="flex flex-col justify-between">
+        <div className="flex flex-col lg:flex-row justify-center text-center my-10">
+          <div className="flex flex-col lg:justify-center px-1 lg:px-10 self-center ">
             <CardsPreventa text={"Campo VIP"} precio={"$46.000"} />
             <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} />
           </div>
-          <div>
-            <img className="h-[470px]" src="https://www.tuentrada.com/concierto/rauw-alejandro/plano-2.png" alt="" />
+          <div className="self-center">
+            <img className="h-[450px] px-1 lg:px-10 " src="https://www.tuentrada.com/concierto/rauw-alejandro/plano-2.png" alt="" />
           </div>
         </div>
       </section>

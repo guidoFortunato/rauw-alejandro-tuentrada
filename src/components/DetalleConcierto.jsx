@@ -5,7 +5,7 @@ export const DetalleConcierto = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 my-5">
         <div className="space-y-3">
           <h5 className="text-xl lg:text-2xl">Dirección</h5>
-          <hr />
+          <hr className="border border-white  " />
           <p className="text-base lg:text-lg">
             Parque Sarmiento
           </p>
@@ -15,7 +15,7 @@ export const DetalleConcierto = () => {
         </div>
         <div className="space-y-3  pt-10 lg:pt-0">
           <h5 className="text-xl lg:text-2xl">Fecha y hora</h5>
-          <hr />
+          <hr className="border border-white  " />
           <p className="text-base lg:text-lg">4 de Noviembre 2023</p>
           <p className="text-base lg:text-lg">21:00 hs</p>
           

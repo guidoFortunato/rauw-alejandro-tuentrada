@@ -9,7 +9,7 @@ export const Footer = () => {
       />{" "}
         
       </a>
-      <hr />
+      <hr className="border border-white  "/>
       <div className="grid grid-cols-1 lg:grid-cols-3  pt-10 text-start md:text-center">
         <div className="flex justify-start md:justify-center pt-2">
           <a href="https://instagram.com/tuentrada">

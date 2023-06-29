@@ -89,15 +89,18 @@ export const Preventas = () => {
             <hr className="border border-white  " />
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row justify-center text-center my-10">
-          <div className="flex flex-col lg:justify-center px-1 lg:px-10 self-center ">
-            <CardsPreventa text={"Campo VIP"} precio={"$46.000"} />
-            <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} />
-          </div>
-          <div className="self-center">
-            <img className="h-[450px] px-1 lg:px-10 " src="https://www.tuentrada.com/concierto/rauw-alejandro/plano-2.png" alt="" />
-          </div>
-        </div>
+        <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
+  <div className="flex flex-col justify-center px-1 lg:px-10 pt-10 ">
+    <CardsPreventa text={"Campo VIP"} precio={"$46.000"} />
+    <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} />
+  </div>
+  <div>
+    <img className="h-[500px] px-1 lg:px-10" src="https://www.tuentrada.com/concierto/rauw-alejandro/plano-2.png" alt="" />
+  </div>
+</div>
+
+
+
       </section>
     </section>
   );

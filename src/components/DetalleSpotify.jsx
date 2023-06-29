@@ -2,7 +2,7 @@ import { SpotifyCard } from "./SpotifyCard";
 
 export const DetalleSpotify = () => {
   return (
-    <section className="text-white p-5 container mx-auto py-10 lg:py-20">
+    <section className="text-white p-5 container mx-auto py-10 lg:py-10">
       <h3 className="text-2xl lg:text-4xl pb-10">Escúchalas en Spotify</h3>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 my-5">

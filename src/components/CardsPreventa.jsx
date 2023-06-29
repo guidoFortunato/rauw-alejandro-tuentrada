@@ -9,7 +9,7 @@ export const CardsPreventa = ({ text, precio }) => {
           alt={text}
         /> */}
       </a>
-      <div className="p-10">
+      <div className="p-5 lg:p-9">
         <p className="mb-3 text-2xl font-normal text-white dark:text-gray-400">
           {text}
         </p>

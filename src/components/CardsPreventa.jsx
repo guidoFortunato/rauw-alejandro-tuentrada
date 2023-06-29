@@ -20,10 +20,11 @@ export const CardsPreventa = ({  text , precio}) => {
         >
           Comprar 
 
-        </a> */} <p className="text-2xl text-white">{precio}</p>
+        </a> */} 
+        <p className="text-2xl text-white">{precio}</p>
         <hr className="mt-3 border border-white " />
         <div className="flex justify-center h-10 items-center">
-        <p className="text-sm lg:text-md text-white h-1.5 whitespace-nowrap p-20 md:p-10">Valor de entrada  Anticipada</p>
+        <p className="text-sm lg:text-md text-white h-1.5 whitespace-nowrap p-1 md:p-10 ">Valor de entrada  Anticipada</p>
 
         </div>
       </div>

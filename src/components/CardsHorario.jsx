@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
 export const CardsHorario = ({  text , texto }) => {
   return (
-    <div className="max-w-xs ml-1 mr-1 sm:ml-3 sm:mr-3 bg-transparent border-gray-200 rounded-lg shadow dark:bg-gray-800 border-2 dark:border-gray-700 mb-10 w-[55px] sm:w-[70px] md:sm:w-[100px] lg:w-[130px]  ">
+    <div className="max-w-xs ml-1 mr-1 sm:ml-3 sm:mr-3 bg-transparent border-gray-200 rounded-lg shadow dark:bg-gray-800 border-2 dark:border-gray-700 mb-10 w-[100%] sm:w-[70px] md:sm:w-[100px] lg:w-[130px]  ">
       
       <div className="text-center px-1 sm-px-3">
 

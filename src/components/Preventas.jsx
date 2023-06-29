@@ -3,7 +3,7 @@ import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar, BotonProximamente } from "./";
 
-const dateToCompare = new Date("Thu Jun 29 2023 18:20:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 29 2023 18:40:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
@@ -19,8 +19,7 @@ export const Preventas = () => {
   //   minutes: 0,
   //   seconds: 0,
   // });
-
-  console.log('mal')
+  
   useEffect(() => {
     const getData = async () => {
       try {
@@ -39,7 +38,6 @@ export const Preventas = () => {
 
   useEffect(() => {
     if (!time) return
-    console.log({time: time.getTime()})
     const intervalo = interval.current
     startTimer();
     return () => clearInterval(intervalo);

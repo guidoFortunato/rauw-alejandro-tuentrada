@@ -1,134 +1,101 @@
-// import { CardsPreventa } from "./CardsPreventa";
-
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { CardsPreventa } from "./CardsPreventa";
+import { CardsHorario } from "./CardsHorario";
 import { BotonComprar, BotonProximamente } from "./";
-// import { ServerDate } from "../helpers/ServerDate";
 
-const dateToCompare = new Date("Thu Jun 29 2023 15:39:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 29 2023 18:00:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
-  // const [button, setButton] = useState(false);
-  const [, setTime] = useState(Date.now());
+  const [ time , setTime] = useState(new Date());
+  const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
-//  console.log({server:ServerDate()})
+  console.log({time})
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await fetch("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires");
+        const data = await response.json();
+        const currentDateTime = new Date(data.datetime);
+        console.log({currentDateTime})
+  
+        if (currentDateTime.getTime() < dateToCompare.getTime()) {
+          setTime(currentDateTime);
+          console.log('set time')
+        } else {
+          setButton(true);
+          console.log('set button')
+        }
+      } catch (error) {
+        throw new Error(error);
+      }
+    }
+    getData()
+  }, []);
 
-  // console.log(button)
-
-  // useEffect(() => {
-  //   const getData = async()=>{
-  //     const res = await fetch("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires")
-  //     const {datetime} = await res.json()
-  //     return datetime
-  //   }
-   
-  //   getData()
-  // }, []);
-
-  // useEffect(() => {
-    
-   
-  //     fetch("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires")
-  //     .then( res => res.json() )
-  //     .then( data => console.log(data) )
-  //     .catch( e => console.log(e))
- 
-   
-
-
-  // }, []);
 
   // useEffect(() => {
-
-   
- 
   //   if (button) return;
 
   //   const interval = setInterval(() => {
-  //     if (Date.now() < dateToCompare.getTime()) {
-  //       setTime(Date.now());
-    
+  //     if (time.getTime() < dateToCompare.getTime()) {
+  //       calculateCountdown();
   //     } else {
   //       setButton(true);
-    
   //       clearInterval(interval);
   //     }
-  //   }, 5000);
+  //   });
+
   //   return () => clearInterval(interval);
   // }, []);
 
-  // useEffect(() => {
-    
+  // const calculateCountdown = () => {
+  //   const difference = dateToCompare.getTime() - time.getTime();
   
-  //   const interval = setInterval(async () => {
-  //     try {
-  //       const response = await fetch("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires");
-  //       const data = await response.json();
+  //   const days = Math.floor(difference / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+  //   const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+  //   const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+  //   const seconds = Math.floor((difference % (1000 * 60)) / 1000).toString().padStart(2, '0');
   
-    
-  //       console.log(data.datetime)
-  //       const currentDateTime = new Date(data.datetime);
-  
-  //       if (currentDateTime.getTime() < dateToCompare.getTime()) {
-  //         setTime(currentDateTime.getTime());
-  //         console.log('set time')
-  //       } else {
-  //         setButton(true);
-  //         console.log('set button')
-  //         clearInterval(interval)
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // const checkDate = () => {
-  //   if (Date.now() < dateToCompare.getTime()) {
-  //     setTime(Date.now());
-  //     console.log('setTime')
-  //   }
-  //   else {
-  //     setButton(true);
-  //     console.log('setButton')
-  //   }
+  //   setCountdown({ days, hours, minutes, seconds });
   // };
 
   return (
-    // <section className="text-white p-5 container mx-auto py-10 lg:py-40">
-    //   <div className="grid grid-cols-1 justify-items-center">
-    //     <h3 className="text-2xl sm:text-3xl lg:text-5xl mb-2">Preventas exclusivas</h3>
-    //     {/* <p className="text-lg lg:text-4xl">Adquirí tus entradas en tuentrada.com</p> */}
-    //   </div>
-    //   <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 justify-items-center xl:gap-0 text-center my-10">
-    //     <CardsPreventa text={"Spotify"} src={"https://picsum.photos/500/400"} />
-    //     <CardsPreventa text={"Galicia"} src={"https://picsum.photos/500/400"} />
-    //     <CardsPreventa
-    //       text={"Venta general"}
-    //       src={"https://picsum.photos/500/400"}
-    //     />
-    //   </div>
-    // </section>
-    <section className="text-white container mx-auto">
-      <section className="text-white p-5 container mx-auto py-10 lg:py-20">
-        <h3 className="text-2xl lg:text-4xl pb-10">Venta general</h3>
+    <section className="text-white container mx-auto pt-10">
+     
+     <div className="bg-contador pt-7">
+     <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
+      <div className="flex pt-5 justify-center px-2" >
+        <CardsHorario texto={"Día"} text={countdown.days} />
+        <CardsHorario texto={"Hora"} text={countdown.hours} />
+        <CardsHorario texto={"Min"} text={countdown.minutes} />
+        <CardsHorario texto={"Seg"} text={countdown.seconds} />
+      </div>
+     </div>
+      {/* {button ? (
+        <BotonComprar />
+      ) : (
+        <BotonProximamente />
+      )} */}
+      <section className="text-white p-5 container mx-auto py-10 lg:py-10">
+    
+        <h3 className="text-2xl lg:text-4xl py-10">Ubicaciones y precios</h3>
         <div className="my-5">
           <div className="space-y-10">
-            <p className=" text-base lg:text-lg">
-              ¡No te pierdas el concierto de Rauw Alejandro en Parque Sarmiento
-              el 4 de noviembre de 2023! <br />
-              La venta general estará disponible próximamente. <br /> ¡Prepárate
-              para disfrutar de su increíble música y asegura tu lugar en este
-              evento imperdible!
+            <p className="text-base lg:text-lg">
+              ¡No te pierdas el concierto de Rauw Alejandro en Parque Sarmiento el 4 de noviembre de 2023! <br />
+              La venta general estará disponible próximamente.
             </p>
             <hr />
-            {button ? (
-             <BotonComprar />
-            ) : (
-             <BotonProximamente />
-            )}
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 justify-items-center xl:gap-0 text-center my-10">
+          <div className="flex flex-col justify-between">
+            <CardsPreventa text={"Campo VIP"} precio={"$46.000"} />
+            <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} />
+          </div>
+          <div>
+            <img className="h-[470px]" src="https://www.tuentrada.com/concierto/rauw-alejandro/plano-2.png" alt="" />
           </div>
         </div>
       </section>

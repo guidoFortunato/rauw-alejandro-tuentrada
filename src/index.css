@@ -29,3 +29,7 @@ body{
   background-repeat: no-repeat;
 
 }
+
+.bg-contador{
+  background: radial-gradient(circle, rgba(101, 7, 209, 0.733) 0%, rgba(135, 3, 3, 0.67) 100%);
+}

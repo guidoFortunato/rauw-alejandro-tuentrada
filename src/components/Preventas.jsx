@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
-import { BotonComprar, BotonProximamente } from "./";
+import { BotonComprar } from "./";
 
-const dateToCompare = new Date("Thu Jun 29 2023 18:40:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 30 2023 12:00:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
   const [time, setTime] = useState(false);
-  const [days, setDays] = useState("00");
-  const [hours, setHours] = useState("00");
-  const [minutes, setMinutes] = useState("00");
-  const [seconds, setSeconds] = useState("00");
+  const [days, setDays] = useState('00');
+  const [hours, setHours] = useState('00');
+  const [minutes, setMinutes] = useState('00');
+  const [seconds, setSeconds] = useState('00');
+  // const [difference, setDifference] = useState(0);
   let interval = useRef();
   // const [countdown, setCountdown] = useState({
   //   days: 0,
@@ -19,8 +20,9 @@ export const Preventas = () => {
   //   minutes: 0,
   //   seconds: 0,
   // });
-  
+
   useEffect(() => {
+    console.log('uef getData')
     const getData = async () => {
       try {
         const response = await fetch(
@@ -29,6 +31,9 @@ export const Preventas = () => {
         const data = await response.json();
         const currentDateTime = new Date(data.datetime);
         setTime(currentDateTime);
+        // console.log(dateToCompare.getTime() - currentDateTime.getTime())
+        // setDifference(dateToCompare.getTime() - currentDateTime.getTime())
+        // console.log({difference})
       } catch (error) {
         throw new Error(error);
       }
@@ -37,17 +42,24 @@ export const Preventas = () => {
   }, []);
 
   useEffect(() => {
-    if (!time) return
-    const intervalo = interval.current
+    if(!time) return
+    console.log('uef startTimer')
+    const intervalo = interval.current;
     startTimer();
     return () => clearInterval(intervalo);
   }, [time]);
 
   const startTimer = () => {
-
+    console.log('funcion start timer')
+    let newTime = time.getTime()
     interval = setInterval(() => {
-      const difference = dateToCompare.getTime() - time.getTime();
-
+      // console.log({newTime})
+      // console.log({timeGetTime: time})
+      // console.log({result: dateToCompare.getTime() - time.getTime()})
+      const difference = dateToCompare.getTime() - newTime;
+      // console.log(dateToCompare.getTime())
+      // console.log(time.getTime())
+      // console.log(difference)
       const dias = Math.floor(difference / (1000 * 60 * 60 * 24))
         .toString()
         .padStart(2, "0");
@@ -62,11 +74,16 @@ export const Preventas = () => {
       const segundos = Math.floor((difference % (1000 * 60)) / 1000)
         .toString()
         .padStart(2, "0");
-
-      if (difference < 0) {
-        clearInterval(interval.current);
-        setButton(true);
-      } else {
+      
+        
+        if (difference < 0) {
+          console.log({diferenciaMenosCero: difference})
+          clearInterval(interval);
+          setButton(true);
+        } else {
+        newTime = newTime + 1000
+        // setDifference( difference - 1000 )
+        // console.log({difference})
         setDays(dias);
         setHours(horas);
         setMinutes(minutos);
@@ -74,8 +91,6 @@ export const Preventas = () => {
       }
     }, 1000);
   };
-
-
 
   // useEffect(() => {
   //   if (button) return;
@@ -115,21 +130,25 @@ export const Preventas = () => {
 
   return (
     <section className="text-white container mx-auto pt-10">
-      <div className="bg-contador pt-7">
-        <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
-        <div className="flex pt-5 justify-center px-2">
-          {!button ? (
-            <>
+      {!button ? (
+        <>
+          <div className="bg-contador pt-7">
+            <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
+            <div className="flex pt-5 justify-center px-2">
               <CardsHorario texto={"Día"} text={days} />
               <CardsHorario texto={"Hora"} text={hours} />
               <CardsHorario texto={"Min"} text={minutes} />
               <CardsHorario texto={"Seg"} text={seconds} />
-            </>
-          ) : (
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="flex pt-5 justify-center px-2">
             <BotonComprar />
-          )}
-        </div>
-      </div>
+          </div>
+        </>
+      )}
       {/* {button ? (
         <BotonComprar />
       ) : (

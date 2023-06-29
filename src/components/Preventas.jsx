@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { BotonComprar, BotonProximamente } from "./";
 
-const dateToCompare = new Date("2023-06-29T13:00:00");
+const dateToCompare = new Date("2023-06-28T16:00:00");
 
 export const Preventas = () => {
   const [button, setButton] = useState(Date.now() >= dateToCompare.getTime());

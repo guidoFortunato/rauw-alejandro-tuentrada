@@ -113,7 +113,7 @@ export const Preventas = () => {
 
   return (
     <section className="text-white container mx-auto pt-10">
-      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Banco Galicia</h3>
+      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Visa Banco Galicia</h3>
      
        
       {!button ? (

@@ -135,7 +135,7 @@ export const Preventas = () => {
       ) : (
         <BotonProximamente />
       )} */}
-      <section className="text-white p-5 container mx-auto py-10 lg:py-10">
+      <section className="text-white p-5 container mx-auto  lg:py-10">
         <div className="my-5">
           <div className="space-y-10">
             <p className="text-base lg:text-lg">
@@ -160,7 +160,7 @@ export const Preventas = () => {
           </div>
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
-          <div className="flex flex-col justify-center px-1 lg:px-10 pt-10 ">
+          <div className="flex flex-col justify-center px-1 lg:px-10 md:pt-5 ">
             <CardsPreventa text={"Campo VIP"} precio={"$46.000"} />
             <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} />
           </div>

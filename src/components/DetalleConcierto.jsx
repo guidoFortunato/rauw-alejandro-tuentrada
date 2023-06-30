@@ -34,7 +34,7 @@ export const DetalleConcierto = () => {
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.0214770169478!2d-58.50299251114504!3d-34.55301159999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb6e5b3eef73d%3A0xd3c3514dbd8403ef!2sParque%20Sarmiento!5e0!3m2!1ses!2sar!4v1688131109244!5m2!1ses!2sar"
         width="100%"
         height="300"
-        style={{ border: "0",   border: "0", filter: "invert(1)"}}
+        style={{ border: "0", filter: "invert(1)" }}
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"

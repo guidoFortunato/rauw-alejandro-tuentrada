@@ -1,4 +1,4 @@
-import { SpotifyCard } from "./SpotifyCard";
+// import { SpotifyCard } from "./SpotifyCard";
 
 export const DetalleSpotify = () => {
   return (

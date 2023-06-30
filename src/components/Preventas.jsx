@@ -145,15 +145,17 @@ export const Preventas = () => {
       <section className="text-white p-5 container mx-auto  lg:py-10">
         <div className="my-5">
           <div className="space-y-10">
+            
             <p className="text-base lg:text-lg">
-              Recordá que los datos de la cuenta y la tarjeta de crédito/debito
-              deben coincidir. <br /> <br />{" "}
+              Recordá que los datos de la cuenta y la tarjeta de crédito/débito
+              deben coincidir. <br /> <br />
+              No es necesario actualizar la página una vez que finalice el contador. <br /><br />
               <strong>
-                {" "}
-                Anticipate: Registrate o actualiza tus datos haciendo{" "}
+                
+                Anticipate: Registrate o actualiza tus datos haciendo 
                 <a
                   target="blank"
-                  className="underline"
+                  className="underline inline-block ml-1 hover:text-gray-300"
                   href="https://wallet.tuentrada.com/account/login"
                 >
                   CLICK AQUÍ

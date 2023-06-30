@@ -6,7 +6,7 @@ import { getEnvVariables } from "../helpers/getEnvVariables";
 
 const { VITE_API_GEO } = getEnvVariables();
 
-const dateToCompare = new Date("Thu Jun 30 2023 19:00:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 30 2023 18:00:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
@@ -113,10 +113,13 @@ export const Preventas = () => {
 
   return (
     <section className="text-white container mx-auto pt-10">
+      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Banco Galicia</h3>
+     
+       
       {!button ? (
         <>
           <div className="bg-contador pt-7">
-            <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
+            <h3 className="text-2xl lg:text-4xl text-center">Próximamente </h3>
             <div className="flex pt-5 justify-center px-2">
               <CardsHorario texto={"Día"} num={days} />
               <CardsHorario texto={"Hora"} num={hours} />
@@ -125,6 +128,7 @@ export const Preventas = () => {
             </div>
           </div>
         </>
+         
       ) : (
         <>
           <div className="flex pt-5 justify-center px-2">
@@ -132,6 +136,7 @@ export const Preventas = () => {
           </div>
         </>
       )}
+      
       {/* {button ? (
         <BotonComprar />
       ) : (
@@ -154,8 +159,11 @@ export const Preventas = () => {
                   CLICK AQUÍ
                 </a>
               </strong>
+            
+             
             </p>
             <hr className="border border-white  " />
+            <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" />
             <h3 className="text-2xl lg:text-4xl py-10">
               Ubicaciones y precios
             </h3>
@@ -163,8 +171,8 @@ export const Preventas = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
           <div className="flex flex-col justify-center px-1 lg:px-10 md:pt-5 ">
-            <CardsPreventa text={"Campo VIP"} precio={"$46.000"} />
-            <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} />
+            <CardsPreventa text={"Campo VIP"} precio={"$46.000"} total={"$40.000 + $6.000"} />
+            <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} total={"$32.000 + $4.800"} />
           </div>
           <div>
             <img

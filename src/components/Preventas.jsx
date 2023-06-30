@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
+import { getEnvVariables } from "../helpers/getEnvVariables";
+
+const { VITE_API_GEO } = getEnvVariables();
 
 const dateToCompare = new Date("Thu Jun 30 2023 19:00:00 GMT-0300");
 
@@ -21,7 +24,7 @@ export const Preventas = () => {
     const getData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires");
+        const response = await fetch(VITE_API_GEO);
         // console.log({response})
         if (!response.ok) {
           setTime(new Date());
@@ -29,7 +32,7 @@ export const Preventas = () => {
         }
         const data = await response.json();
         const currentDateTime = new Date(data.datetime);
-        console.log(currentDateTime)
+        // console.log(currentDateTime)
         setTime(currentDateTime);
       } catch (error) {
         // setError(error);

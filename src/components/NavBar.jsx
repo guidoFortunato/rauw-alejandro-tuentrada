@@ -5,7 +5,7 @@ export const NavBar = () => {
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between">
         <a href="https://tuentrada.com/" target="_blank" rel="noreferrer" className="flex items-center">
-          <img style={{width:"250px"}}
+          <img style={{width:"230px"}}
             src="https://www.tuentrada.com/img/logo_tuboleta_menu.svg"
             className="h-15 mr-3"
             alt="Logo TuEntrada"

@@ -30,9 +30,9 @@ export const Header = () => {
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
         // }}
       style={{padding:" 0 20px"}} >
-        <img className="sm:block md:hidden" src="https://tuentrada.com/concierto/rauw-alejandro/Rauw Alejandro 900x800 (1).jpg" alt="" />
-        <img className="hidden md:block w-screen lg:hidden"  src="https://tuentrada.com/concierto/rauw-alejandro/Rauw Alejandro 800x400.jpg" alt="" />
-        <img className="hidden  lg:block w-screen"  src="https://tuentrada.com/concierto/rauw-alejandro/Rauw Alejandro 1920x710 (2).webp" alt="" />
+        <img className="sm:block md:hidden" src="https://tuentrada.com/concierto/rauw-alejandro/900x800.jpg" alt="banner principal de Rauw Alejandro" />
+        <img className="hidden md:block w-screen lg:hidden"  src="https://tuentrada.com/concierto/rauw-alejandro/800x400.jpg" alt="banner principal de Rauw Alejandro" />
+        <img className="hidden  lg:block w-screen"  src="https://tuentrada.com/concierto/rauw-alejandro/1920x710.webp" alt="banner principal de Rauw Alejandro" />
       
           
         {/* <div

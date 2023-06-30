@@ -3,7 +3,7 @@ import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 
-const dateToCompare = new Date("Thu Jun 30 2023 12:00:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 30 2023 10:52:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
@@ -175,7 +175,7 @@ export const Preventas = () => {
             <img
               className="h-[500px] px-1 lg:px-10"
               src="https://www.tuentrada.com/concierto/rauw-alejandro/plano-2.png"
-              alt=""
+              alt="Plano de ubicaciones del evento"
             />
           </div>
         </div>

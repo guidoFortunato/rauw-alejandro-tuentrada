@@ -10,7 +10,7 @@ export const Footer = () => {
         
       </a>
       <hr className="border border-white  "/>
-      <div className="grid grid-cols-1 lg:grid-cols-3  pt-10 text-start md:text-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3  pt-10 text-start md:text-center pb-5">
         <div className="flex justify-start md:justify-center pt-2">
           <a href="https://instagram.com/tuentrada">
           
@@ -67,6 +67,8 @@ export const Footer = () => {
           <p className="text-base lg:text-lg">TuEntrada Wallet</p>
         </a>
       </div>
+      <span className="text-xs">Preventa exclusiva con tus Tarjetas Visa Galicia desde el lunes 3/7 a las 10:00 am al miércoles 6/7 o hasta agotar stock con 20% de ahorro SOLO en la preventa y hasta 6 cuotas sin interés.
+Cartera de consumo. Promoción del 20% de ahorro y hasta 6 cuotas sin interés abonando con tarjetas VISA Galicia. Válida en el país desde el 03/07/2023 a las 10 horas, hasta las 23:59hs del 5/07/2023 o hasta agotar stock de 7.500 tickets, lo que suceda primero. Compra máxima por persona: 4 tickets. Ejemplo: En una compra de $18.000 y se paga en 6 cuotas: el importe del ahorro es de $3.600 y el valor de las cuotas será de $3.000. Más información en <a className="underline" target="blank" href="https://www.galicia.ar/personas">Galicia.ar</a> El “CFTEA”: 0,00%, “CFTEA”+IVA:0,00%</span>
     </section>
   );
 };

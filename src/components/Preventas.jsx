@@ -4,9 +4,9 @@ import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 import { getEnvVariables } from "../helpers/getEnvVariables";
 
-const { VITE_API_GEO } = getEnvVariables();
+const { VITE_API_GEO, VITE_DATE } = getEnvVariables();
 
-const dateToCompare = new Date("Thu Jun 30 2023 18:00:00 GMT-0300");
+const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);

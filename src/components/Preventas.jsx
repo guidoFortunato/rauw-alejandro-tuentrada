@@ -3,7 +3,7 @@ import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 
-const dateToCompare = new Date("Thu Jun 30 2023 15:52:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 30 2023 17:11:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
@@ -21,8 +21,10 @@ export const Preventas = () => {
   //   seconds: 0,
   // });
 
+  // console.log('mal')
+
   useEffect(() => {
-    console.log('uef getData')
+    // console.log('uef getData')
     const getData = async () => {
       try {
         const response = await fetch(
@@ -43,14 +45,14 @@ export const Preventas = () => {
 
   useEffect(() => {
     if(!time) return
-    console.log('uef startTimer')
+    // console.log('uef startTimer')
     const intervalo = interval.current;
     startTimer();
     return () => clearInterval(intervalo);
   }, [time]);
 
   const startTimer = () => {
-    console.log('funcion start timer')
+    // console.log('funcion start timer')
     let newTime = time.getTime()
     interval = setInterval(() => {
       // console.log({newTime})
@@ -77,7 +79,7 @@ export const Preventas = () => {
       
         
         if (difference < 0) {
-          console.log({diferenciaMenosCero: difference})
+          // console.log({diferenciaMenosCero: difference})
           clearInterval(interval);
           setButton(true);
         } else {
@@ -135,10 +137,10 @@ export const Preventas = () => {
           <div className="bg-contador pt-7">
             <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
             <div className="flex pt-5 justify-center px-2">
-              <CardsHorario texto={"Día"} text={days} />
-              <CardsHorario texto={"Hora"} text={hours} />
-              <CardsHorario texto={"Min"} text={minutes} />
-              <CardsHorario texto={"Seg"} text={seconds} />
+              <CardsHorario texto={"Día"} num={days} />
+              <CardsHorario texto={"Hora"} num={hours} />
+              <CardsHorario texto={"Min"} num={minutes} />
+              <CardsHorario texto={"Seg"} num={seconds} />
             </div>
           </div>
         </>

@@ -21,24 +21,13 @@ export const Header = () => {
         // style={{
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
         // }}
-        style={{ padding: "10px 20px" }}
-      >
-        <img
-          className="sm:block md:hidden"
-          src="https://tuentrada.com/concierto/rauw-alejandro/900x800.jpg"
-          alt="banner principal de Rauw Alejandro"
-        />
-        <img
-          className="hidden md:block w-screen lg:hidden"
-          src="https://tuentrada.com/concierto/rauw-alejandro/800x400.jpg"
-          alt="banner principal de Rauw Alejandro"
-        />
-        <img
-          className="hidden  lg:block w-screen"
-          src="https://tuentrada.com/concierto/rauw-alejandro/1920x710.webp"
-          alt="banner principal de Rauw Alejandro"
-        />
-
+      style={{padding:" 0 20px"}} >
+        <img className="sm:block md:hidden" src="https://tuentrada.com/concierto/rauw-alejandro/900x800.jpg" alt="banner principal de Rauw Alejandro" />
+        <img className="hidden md:block w-screen lg:hidden"  src="https://tuentrada.com/concierto/rauw-alejandro/800x400.jpg" alt="banner principal de Rauw Alejandro" />
+        <img className="hidden  lg:block w-screen"  src="https://tuentrada.com/concierto/rauw-alejandro/1920x710.webp" alt="banner principal de Rauw Alejandro" />
+        <h1 className="hidden">Rauw Alejandro</h1>
+        <h2 className="hidden">Parque Sarmiento</h2>
+          
         {/* <div
           className={`min-h-[50vh] flex justify-center items-start flex-col `}
           >

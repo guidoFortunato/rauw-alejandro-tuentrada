@@ -3,7 +3,7 @@ import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 
-const dateToCompare = new Date("Thu Jun 30 2023 17:11:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 30 2023 17:00:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);

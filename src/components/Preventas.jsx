@@ -7,61 +7,52 @@ const dateToCompare = new Date("Thu Jun 30 2023 17:11:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [time, setTime] = useState(false);
-  const [days, setDays] = useState('00');
-  const [hours, setHours] = useState('00');
-  const [minutes, setMinutes] = useState('00');
-  const [seconds, setSeconds] = useState('00');
-  // const [difference, setDifference] = useState(0);
+  const [days, setDays] = useState("00");
+  const [hours, setHours] = useState("00");
+  const [minutes, setMinutes] = useState("00");
+  const [seconds, setSeconds] = useState("00");
   let interval = useRef();
-  // const [countdown, setCountdown] = useState({
-  //   days: 0,
-  //   hours: 0,
-  //   minutes: 0,
-  //   seconds: 0,
-  // });
 
-  // console.log('mal')
+  // console.log({ error });
 
   useEffect(() => {
-    // console.log('uef getData')
     const getData = async () => {
+      setIsLoading(true);
       try {
-        const response = await fetch(
-          "https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
-        );
+        const response = await fetch("https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires");
+        console.log({response})
+        if (!response.ok) {
+          const data = await response.json();
+          setError(data.error);
+          return;
+        }
         const data = await response.json();
         const currentDateTime = new Date(data.datetime);
         setTime(currentDateTime);
-        // console.log(dateToCompare.getTime() - currentDateTime.getTime())
-        // setDifference(dateToCompare.getTime() - currentDateTime.getTime())
-        // console.log({difference})
       } catch (error) {
+        setError(error);
         throw new Error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     getData();
   }, []);
 
   useEffect(() => {
-    if(!time) return
-    // console.log('uef startTimer')
+    if (!time) return;
     const intervalo = interval.current;
     startTimer();
     return () => clearInterval(intervalo);
   }, [time]);
 
   const startTimer = () => {
-    // console.log('funcion start timer')
-    let newTime = time.getTime()
+    let newTime = time.getTime();
     interval = setInterval(() => {
-      // console.log({newTime})
-      // console.log({timeGetTime: time})
-      // console.log({result: dateToCompare.getTime() - time.getTime()})
       const difference = dateToCompare.getTime() - newTime;
-      // console.log(dateToCompare.getTime())
-      // console.log(time.getTime())
-      // console.log(difference)
       const dias = Math.floor(difference / (1000 * 60 * 60 * 24))
         .toString()
         .padStart(2, "0");
@@ -76,16 +67,12 @@ export const Preventas = () => {
       const segundos = Math.floor((difference % (1000 * 60)) / 1000)
         .toString()
         .padStart(2, "0");
-      
-        
-        if (difference < 0) {
-          // console.log({diferenciaMenosCero: difference})
-          clearInterval(interval);
-          setButton(true);
-        } else {
-        newTime = newTime + 1000
-        // setDifference( difference - 1000 )
-        // console.log({difference})
+
+      if (difference < 0) {
+        clearInterval(interval);
+        setButton(true);
+      } else {
+        newTime = newTime + 1000;
         setDays(dias);
         setHours(horas);
         setMinutes(minutos);
@@ -94,41 +81,33 @@ export const Preventas = () => {
     }, 1000);
   };
 
-  // useEffect(() => {
-  //   if (button) return;
+  if (isLoading) return <span></span>;
 
-  //   const interval = setInterval(() => {
-  //     if (time.getTime() < dateToCompare.getTime()) {
-  //       calculateCountdown();
-  //     } else {
-  //       setButton(true);
-  //       clearInterval(interval);
-  //     }
-  //   },1000);
-
-  //   return () => clearInterval(interval);
-  // }, []);
-
-  // const calculateCountdown = () => {
-  //   const difference = dateToCompare.getTime() - time.getTime();
-
-  //   const days = Math.floor(difference / (1000 * 60 * 60 * 24))
-  //     .toString()
-  //     .padStart(2, "0");
-  //   const hours = Math.floor(
-  //     (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-  //   )
-  //     .toString()
-  //     .padStart(2, "0");
-  //   const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-  //     .toString()
-  //     .padStart(2, "0");
-  //   const seconds = Math.floor((difference % (1000 * 60)) / 1000)
-  //     .toString()
-  //     .padStart(2, "0");
-
-  //   setCountdown({ days, hours, minutes, seconds });
-  // };
+  if (error !== null)
+    return (
+      <div
+        className="flex justify-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <svg
+          aria-hidden="true"
+          className="flex-shrink-0 inline w-5 h-5 mr-3"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+        <span className="sr-only">Info</span>
+        <div>
+          Por favor intente nuevamente mas tarde
+        </div>
+      </div>
+    );
 
   return (
     <section className="text-white container mx-auto pt-10">
@@ -157,17 +136,27 @@ export const Preventas = () => {
         <BotonProximamente />
       )} */}
       <section className="text-white p-5 container mx-auto py-10 lg:py-10">
-        
         <div className="my-5">
           <div className="space-y-10">
             <p className="text-base lg:text-lg">
-           
-            Recordá que los datos de la cuenta y la tarjeta de crédito/debito deben coincidir. <br /> <br /> <strong> Anticipate: Registrate o actualiza tus datos haciendo <a target="blank" className="underline" href="https://wallet.tuentrada.com/account/login">CLICK AQUÍ</a>      
+              Recordá que los datos de la cuenta y la tarjeta de crédito/debito
+              deben coincidir. <br /> <br />{" "}
+              <strong>
+                {" "}
+                Anticipate: Registrate o actualiza tus datos haciendo{" "}
+                <a
+                  target="blank"
+                  className="underline"
+                  href="https://wallet.tuentrada.com/account/login"
+                >
+                  CLICK AQUÍ
+                </a>
               </strong>
             </p>
             <hr className="border border-white  " />
-            <h3 className="text-2xl lg:text-4xl py-10">Ubicaciones y precios</h3>
-            
+            <h3 className="text-2xl lg:text-4xl py-10">
+              Ubicaciones y precios
+            </h3>
           </div>
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">

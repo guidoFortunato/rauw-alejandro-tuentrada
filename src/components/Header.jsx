@@ -1,10 +1,4 @@
-
-
 export const Header = () => {
-
-
-
-
   // const [showButton, setShowButton] = useState(false);
   // const targetDate = new Date('2023-06-27');
 
@@ -20,12 +14,10 @@ export const Header = () => {
   //   return () => clearInterval(interval);
   // }, []);
 
-
   return (
     <>
       <header
         className={`nav bg-no-repeat bg-cover bg-end z-40`}
-      
         // style={{
         //   backgroundImage: `url("https://www.tuentrada.com/concierto/rauw-alejandro/banner.png"})`,
         // }}
@@ -41,11 +33,6 @@ export const Header = () => {
           >
           
         </div> */}
-      
-
-       
-    
-      
       </header>
     </>
   );

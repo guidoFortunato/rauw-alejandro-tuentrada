@@ -6,7 +6,7 @@ import { getEnvVariables } from "../helpers/getEnvVariables";
 
 const { VITE_API_GEO } = getEnvVariables();
 
-const dateToCompare = new Date("Thu Jun 30 2023 19:00:00 GMT-0300");
+const dateToCompare = new Date("Mon Jul 3 2023 10:00:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);

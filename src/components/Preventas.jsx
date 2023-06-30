@@ -3,7 +3,7 @@ import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 
-const dateToCompare = new Date("Thu Jun 30 2023 13:52:00 GMT-0300");
+const dateToCompare = new Date("Thu Jun 30 2023 15:52:00 GMT-0300");
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
@@ -26,7 +26,7 @@ export const Preventas = () => {
     const getData = async () => {
       try {
         const response = await fetch(
-          "http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
+          "https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
         );
         const data = await response.json();
         const currentDateTime = new Date(data.datetime);
@@ -155,15 +155,17 @@ export const Preventas = () => {
         <BotonProximamente />
       )} */}
       <section className="text-white p-5 container mx-auto py-10 lg:py-10">
-        <h3 className="text-2xl lg:text-4xl py-10">Ubicaciones y precios</h3>
+        
         <div className="my-5">
           <div className="space-y-10">
             <p className="text-base lg:text-lg">
-              ¡No te pierdas el concierto de Rauw Alejandro en Parque Sarmiento
-              el 4 de noviembre de 2023! <br />
-              La venta general estará disponible próximamente.
+           
+            Recordá que los datos de la cuenta y la tarjeta de crédito/debito deben coincidir. <br /> <br /> <strong> Anticipate: Registrate o actualiza tus datos haciendo <a target="blank" className="underline" href="https://wallet.tuentrada.com/account/login">CLICK AQUÍ</a>      
+              </strong>
             </p>
             <hr className="border border-white  " />
+            <h3 className="text-2xl lg:text-4xl py-10">Ubicaciones y precios</h3>
+            
           </div>
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">

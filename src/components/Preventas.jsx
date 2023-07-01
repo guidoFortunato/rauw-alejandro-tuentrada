@@ -173,8 +173,8 @@ export const Preventas = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
           <div className="flex flex-col justify-center px-1 lg:px-10 md:pt-5 ">
-            <CardsPreventa text={"Campo VIP"} precio={"$46.000"} total={"$40.000 + $6.000"} />
-            <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} total={"$32.000 + $4.800"} />
+            <CardsPreventa text={"Campo VIP"} precio={"$40.000"} total={"$40.000 + $6.000"} />
+            <CardsPreventa text={"Campo GENERAL"} precio={"$32.000"} total={"$32.000 + $4.800"} />
           </div>
           <div>
             <img

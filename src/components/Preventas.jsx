@@ -4,9 +4,9 @@ import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 import { getEnvVariables } from "../helpers/getEnvVariables";
 
-const { VITE_API_GEO } = getEnvVariables();
+const { VITE_API_GEO, VITE_DATE } = getEnvVariables();
 
-const dateToCompare = new Date("Thu Jun 30 2023 18:00:00 GMT-0300");
+const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
@@ -113,7 +113,7 @@ export const Preventas = () => {
 
   return (
     <section className="text-white container mx-auto pt-10">
-      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Banco Galicia</h3>
+      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Visa Banco Galicia</h3>
      
        
       {!button ? (
@@ -145,15 +145,17 @@ export const Preventas = () => {
       <section className="text-white p-5 container mx-auto  lg:py-10">
         <div className="my-5">
           <div className="space-y-10">
+            
             <p className="text-base lg:text-lg">
-              Recordá que los datos de la cuenta y la tarjeta de crédito/debito
-              deben coincidir. <br /> <br />{" "}
+              Recordá que los datos de la cuenta y la tarjeta de crédito/débito
+              deben coincidir. <br /> <br />
+              No es necesario actualizar la página una vez que finalice el contador. <br /><br />
               <strong>
-                {" "}
-                Anticipate: Registrate o actualiza tus datos haciendo{" "}
+                
+                Anticipate: Registrate o actualiza tus datos haciendo 
                 <a
                   target="blank"
-                  className="underline"
+                  className="underline inline-block ml-1 hover:text-gray-300"
                   href="https://wallet.tuentrada.com/account/login"
                 >
                   CLICK AQUÍ
@@ -171,8 +173,8 @@ export const Preventas = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
           <div className="flex flex-col justify-center px-1 lg:px-10 md:pt-5 ">
-            <CardsPreventa text={"Campo VIP"} precio={"$46.000"} total={"$40.000 + $6.000"} />
-            <CardsPreventa text={"Campo GENERAL"} precio={"$36.800"} total={"$32.000 + $4.800"} />
+            <CardsPreventa text={"Campo VIP"} precio={"$40.000"} total={"$40.000 + $6.000"} />
+            <CardsPreventa text={"Campo GENERAL"} precio={"$32.000"} total={"$32.000 + $4.800"} />
           </div>
           <div>
             <img

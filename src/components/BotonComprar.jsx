@@ -1,8 +1,11 @@
+import { getEnvVariables } from "../helpers/getEnvVariables";
+
+const { VITE_ID_VENTA } = getEnvVariables();
 export const BotonComprar = () => {
   return (
     <>
       <a
-        href="https://wallet.tuentrada.com/selection/event/date?productId=10228798099637"
+        href={`https://wallet.tuentrada.com/selection/event/date?productId=${VITE_ID_VENTA}`}
         target="_blank"
         rel="noreferrer"
         className="inline-block"

@@ -3,6 +3,7 @@ export * from "./BotonProximamente";
 export * from "./DetalleConcierto";
 export * from "./DetalleSpotify";
 export * from "./Footer";
+export * from "./FooterNoAccess";
 export * from "./Header";
 export * from "./MainEvent";
 export * from "./NavBar";

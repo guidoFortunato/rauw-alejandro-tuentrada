@@ -4,6 +4,9 @@
 
 body{
   font-family: 'DM Sans', sans-serif;
+  position: relative;
+  min-height: 100vh;
+  /* padding-bottom: 200px; */
   /* background-color: #000; */
 }
 
@@ -32,4 +35,8 @@ body{
 
 .bg-contador{
   background: radial-gradient(circle, rgba(75, 17, 1, 0.733) 0%, rgba(50, 1, 22, 0.67) 100%);
+}
+
+.h-main{
+  height: calc(100vh-143px);
 }

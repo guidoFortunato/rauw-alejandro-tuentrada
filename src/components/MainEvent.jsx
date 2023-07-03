@@ -1,4 +1,4 @@
-import { DetalleSpotify, DetalleConcierto, Preventas, Footer } from ".";
+import { DetalleSpotify, DetalleConcierto, Preventas, Footer } from "./";
 
 export const MainEvent = () => {
   return (

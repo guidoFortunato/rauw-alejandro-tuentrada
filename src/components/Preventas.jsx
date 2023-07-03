@@ -9,7 +9,7 @@ const { VITE_API_GEO, VITE_DATE } = getEnvVariables();
 const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
-  const [button, setButton] = useState(true);
+  const [button, setButton] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [time, setTime] = useState(false);
   const [days, setDays] = useState("00");
@@ -113,7 +113,7 @@ export const Preventas = () => {
 
   return (
     <section className="text-white container mx-auto pt-10">
-      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Visa Banco Galicia</h3>
+      <h3 className="text-2xl lg:text-4xl text-center pb-5">Venta General</h3>
      
        
       {!button ? (
@@ -165,7 +165,7 @@ export const Preventas = () => {
              
             </p>
             <hr className="border border-white  " />
-            <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" />
+            {/* <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" /> */}
             <h3 className="text-2xl lg:text-4xl py-10">
               Ubicaciones y precios
             </h3>

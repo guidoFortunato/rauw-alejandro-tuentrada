@@ -83,7 +83,7 @@ export const Preventas = () => {
     }, 1000);
   };
 
-  if (isLoading) return <span></span>;
+  // if (isLoading) return <span></span>;
 
   // if (error !== null)
   //   return (

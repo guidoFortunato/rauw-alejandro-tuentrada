@@ -11,7 +11,7 @@ const dateToCompare = new Date(VITE_DATE);
 export const Preventas = () => {
   const [button, setButton] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
-  const [time, setTime] = useState(false);
+  const [time, setTime] = useState(new Date());
   const [days, setDays] = useState("00");
   const [hours, setHours] = useState("00");
   const [minutes, setMinutes] = useState("00");
@@ -25,17 +25,16 @@ export const Preventas = () => {
       setIsLoading(true);
       try {
         const response = await fetch(VITE_API_GEO);
-        // console.log({response})
         if (!response.ok) {
+          console.log('entra acá')
+          setIsLoading(false);
           setTime(new Date());
           return;
         }
         const data = await response.json();
         const currentDateTime = new Date(data.datetime);
-        // console.log(currentDateTime)
         setTime(currentDateTime);
       } catch (error) {
-        // setError(error);
         throw new Error(error);
       } finally {
         setIsLoading(false);
@@ -113,13 +112,13 @@ export const Preventas = () => {
 
   return (
     <section className="text-white container mx-auto pt-10">
-      <h3 className="text-2xl lg:text-4xl text-center pb-5">Preventa Exclusiva Visa Banco Galicia</h3>
+      <h3 className="text-2xl lg:text-4xl text-center pb-5">Venta General</h3>
      
        
       {!button ? (
         <>
           <div className="bg-contador pt-7">
-            <h3 className="text-2xl lg:text-4xl text-center">Próximamente </h3>
+            <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
             <div className="flex pt-5 justify-center px-2">
               <CardsHorario texto={"Día"} num={days} />
               <CardsHorario texto={"Hora"} num={hours} />
@@ -165,7 +164,7 @@ export const Preventas = () => {
              
             </p>
             <hr className="border border-white  " />
-            <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" />
+            {/* <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" /> */}
             <h3 className="text-2xl lg:text-4xl py-10">
               Ubicaciones y precios
             </h3>

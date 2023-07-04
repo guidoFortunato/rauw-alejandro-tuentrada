@@ -9,7 +9,7 @@ import { NavBarNoEvent } from "./components/NavBarNoEvent";
 const { VITE_GA } = getEnvVariables();
 
 function App() {
-  const [error, setError] = useState(true);
+  const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function App() {
     });
   }, []);
 
-  if (isLoading) return <span></span>;
+  // if (isLoading) return <span></span>;
 
   if (error === true) {
     return (

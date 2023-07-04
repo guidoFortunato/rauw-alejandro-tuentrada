@@ -1,5 +1,5 @@
 export const getAccess = async (
-  URL = "https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Airess"
+  URL = "https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
 ) => {
   try {
     const response = await fetch(URL);

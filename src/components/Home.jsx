@@ -1,4 +1,3 @@
-import { NavBarNoEvent } from "./NavBarNoEvent";
 import { MainNoEvent } from "./MainNoEvent";
 import { NavBar } from "./NavBar";
 import { Header } from "./Header";
@@ -7,7 +6,7 @@ import { useEffect, useState } from "react";
 import { getAccess } from "../helpers/getAccess";
 
 export const Home = () => {
-    const [error, setError] = useState(true);
+    const [error, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
 //   useEffect(() => {
@@ -27,7 +26,7 @@ export const Home = () => {
     if (error === true) {
         return (
           <>
-            <NavBarNoEvent />
+            <NavBar />
             <MainNoEvent />
           </>
         );

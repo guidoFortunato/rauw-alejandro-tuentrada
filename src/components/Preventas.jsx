@@ -11,10 +11,10 @@ const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
   const [button, setButton] = useState(false);
-  const [days, setDays] = useState("00");
-  const [hours, setHours] = useState("00");
-  const [minutes, setMinutes] = useState("00");
-  const [seconds, setSeconds] = useState("00");
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   let interval = useRef();
 
   const { isLoading, time } = useContext(InfoContext);
@@ -60,7 +60,7 @@ export const Preventas = () => {
     }, 1000);
   };
 
-  // if (isLoading) return <span></span>;
+  if (isLoading) return <span></span>;
 
   return (
     <section className="text-white container mx-auto pt-10">

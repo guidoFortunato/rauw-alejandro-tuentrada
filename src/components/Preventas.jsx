@@ -9,7 +9,7 @@ const { VITE_API_GEO, VITE_DATE } = getEnvVariables();
 const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
-  const [button, setButton] = useState(true);
+  const [button, setButton] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [time, setTime] = useState(new Date());
   const [days, setDays] = useState("00");

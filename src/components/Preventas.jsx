@@ -133,7 +133,7 @@ export const Preventas = () => {
               atrevió a lanzar un EP en conjunto con Rosalía denominado RR del
               cual destaca el single Beso.
             </p>
-            {/* <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" /> */}
+            <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" />
             <h3 className="text-2xl lg:text-4xl py-10">
               Ubicaciones y precios
             </h3>

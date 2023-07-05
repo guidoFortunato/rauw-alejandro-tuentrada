@@ -5,7 +5,7 @@ import { BotonComprar } from "./";
 import { getEnvVariables } from "../helpers/getEnvVariables";
 import { InfoContext } from "../context/InfoProvider";
 
-const { VITE_DATE } = getEnvVariables();
+const { VITE_DATE, VITE_API_GEO } = getEnvVariables();
 
 const dateToCompare = new Date(VITE_DATE);
 
@@ -15,8 +15,33 @@ export const Preventas = () => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [time, setTime] = useState(0);
 
-  const { isLoading, time } = useContext(InfoContext);
+  // const { time } = useContext(InfoContext);
+
+  useEffect(() => {
+    if(button === true) return 
+    const getData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(VITE_API_GEO);
+        if (!response.ok) {
+          setTime(new Date());
+          return;
+        }
+        const data = await response.json();
+        const currentDateTime = new Date(data.datetime);
+        setTime(currentDateTime);
+      } catch (error) {
+        setTime(new Date());
+        throw new Error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getData();
+  }, [button]);
 
   // console.log({ error });
   useEffect(() => {
@@ -41,16 +66,13 @@ export const Preventas = () => {
       // console.log('return worker')
       worker.terminate();
     };
-
-
-
     // const intervalo = interval.current;
     // startTimer();
     // return () => clearInterval(intervalo);
   }, [time]);
   
 
-  if (isLoading) return <span></span>;
+  // if (isLoading) return <span></span>;
 
   return (
     <section className="text-white container mx-auto pt-10">

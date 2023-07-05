@@ -60,7 +60,7 @@ export const Preventas = () => {
     }, 1000);
   };
 
-  if (isLoading) return <span></span>;
+  // if (isLoading) return <span></span>;
 
   return (
     <section className="text-white container mx-auto pt-10">

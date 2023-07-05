@@ -1,5 +1,3 @@
-import { FooterNoAccess } from "./FooterNoAccess";
-
 export const MainNoEvent = () => {
   return (
     <main className="relative  flex flex-col justify-center h-main">
@@ -21,13 +19,16 @@ export const MainNoEvent = () => {
             ></path>
           </svg> */}
         <span className="sr-only ">Info</span>
-        <div className="text-lg lg:text-xl bg-red-200 p-10 text-ellipsis">
-          Posee el acceso bloqueado para esta página, comuniquese con{" "}
-          <strong>info@tuentrada.com</strong> para mas información
+        <div className="flex flex-col text-lg lg:text-xl bg-red-200 p-10 text-ellipsis">
+          <div>
+            <span className="text-xl lg:text-2xl">El acceso a esta página está <strong>bloqueado</strong>.</span>
+          </div>
+          <div>
+
+            <span className="text-xl lg:text-2xl">Por favor, póngase en contacto con <strong>info@tuentrada.com</strong> para obtener más información.</span>
+            
+          </div>
         </div>
-      </div>
-      <div>
-        <FooterNoAccess />
       </div>
     </main>
   );

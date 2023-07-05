@@ -1,47 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 import { getEnvVariables } from "../helpers/getEnvVariables";
+import { InfoContext } from "../context/InfoProvider";
 
 const { VITE_API_GEO, VITE_DATE } = getEnvVariables();
 
 const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
-  const [button, setButton] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
-  const [time, setTime] = useState(new Date());
-  const [days, setDays] = useState("00");
-  const [hours, setHours] = useState("00");
-  const [minutes, setMinutes] = useState("00");
-  const [seconds, setSeconds] = useState("00");
+  const [button, setButton] = useState(false);
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
   let interval = useRef();
 
-  // console.log({ error });
+  const { isLoading, time } = useContext(InfoContext);
 
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(VITE_API_GEO);
-        if (!response.ok) {
-          console.log('entra acá')
-          setIsLoading(false);
-          setTime(new Date());
-          return;
-        }
-        const data = await response.json();
-        const currentDateTime = new Date(data.datetime);
-        setTime(currentDateTime);
-      } catch (error) {
-        throw new Error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getData();
-  }, []);
+  // console.log({ error });
 
   useEffect(() => {
     if (!time) return;
@@ -82,39 +60,12 @@ export const Preventas = () => {
     }, 1000);
   };
 
-  // if (isLoading) return <span></span>;
-
-  // if (error !== null)
-  //   return (
-  //     <div
-  //       className="flex t-5 justify-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-  //       role="alert"
-  //     >
-  //       <svg
-  //         aria-hidden="true"
-  //         className="flex-shrink-0 inline w-5 h-5 mr-3"
-  //         fill="currentColor"
-  //         viewBox="0 0 20 20"
-  //         xmlns="http://www.w3.org/2000/svg"
-  //       >
-  //         <path
-  //           fillRule="evenodd"
-  //           d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-  //           clipRule="evenodd"
-  //         ></path>
-  //       </svg>
-  //       <span className="sr-only">Info</span>
-  //       <div>
-  //         Por favor intente nuevamente mas tarde
-  //       </div>
-  //     </div>
-  //   );
+  if (isLoading) return <span></span>;
 
   return (
     <section className="text-white container mx-auto pt-10">
       <h3 className="text-2xl lg:text-4xl text-center pb-5">Venta General</h3>
-     
-       
+
       {!button ? (
         <>
           <div className="bg-contador pt-7">
@@ -127,7 +78,6 @@ export const Preventas = () => {
             </div>
           </div>
         </>
-         
       ) : (
         <>
           <div className="flex pt-5 justify-center px-2">
@@ -135,7 +85,7 @@ export const Preventas = () => {
           </div>
         </>
       )}
-      
+
       {/* {button ? (
         <BotonComprar />
       ) : (
@@ -144,14 +94,14 @@ export const Preventas = () => {
       <section className="text-white p-5 container mx-auto  lg:py-10">
         <div className="my-5">
           <div className="space-y-10">
-            
             <p className="text-base lg:text-lg">
               Recordá que los datos de la cuenta y la tarjeta de crédito/débito
               deben coincidir. <br /> <br />
-              No es necesario actualizar la página una vez que finalice el contador. <br /><br />
+              No es necesario actualizar la página una vez que finalice el
+              contador. <br />
+              <br />
               <strong>
-                
-                Anticipate: Registrate o actualiza tus datos haciendo 
+                Anticipate: Registrate o actualiza tus datos haciendo
                 <a
                   target="blank"
                   className="underline inline-block ml-1 hover:text-gray-300"
@@ -160,10 +110,29 @@ export const Preventas = () => {
                   CLICK AQUÍ
                 </a>
               </strong>
-            
-             
             </p>
             <hr className="border border-white  " />
+            <p>
+              El cantante y compositor puertorriqueño Rauw Alejandro regresa a
+              Argentina con su nuevo viaje denominado Saturno World Tour 2023
+              que lo traerá el próximos 4 de noviembre para un show en Parque
+              Sarmiento. <br />
+              <br />
+              Con su nuevo single Baby Hello, el exponente multi-platino de la
+              música urbana en español Rauw Alejandro. <br />
+              Este tema promete ser un himno y transformar cada noche en una
+              fiesta inolvidable. <br />
+              <br />
+              Su nuevo álbum Saturno con colaboraciones con Arcángel, Playero y
+              Lyannno ha ratificado en plataformas digitales porque Rauw es uno
+              de los 100 artistas más escuchados en todo el mundo. <br />
+              <br />
+              Cantante, compositor, bailarín y productor, Rauw cuenta con
+              grandes éxitos como Todo de ti, Punto 40, Te felicito,
+              Desesperados, Fantasías, Lokera, Cúrame entre otros, Y este año se
+              atrevió a lanzar un EP en conjunto con Rosalía denominado RR del
+              cual destaca el single Beso.
+            </p>
             {/* <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" /> */}
             <h3 className="text-2xl lg:text-4xl py-10">
               Ubicaciones y precios
@@ -172,8 +141,16 @@ export const Preventas = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
           <div className="flex flex-col justify-center px-1 lg:px-10 md:pt-5 ">
-            <CardsPreventa text={"Campo VIP"} precio={"$40.000"} total={"$40.000 + $6.000"} />
-            <CardsPreventa text={"Campo GENERAL"} precio={"$32.000"} total={"$32.000 + $4.800"} />
+            <CardsPreventa
+              text={"Campo VIP"}
+              precio={"$40.000"}
+              total={"$40.000 + $6.000"}
+            />
+            <CardsPreventa
+              text={"Campo GENERAL"}
+              precio={"$32.000"}
+              total={"$32.000 + $4.800"}
+            />
           </div>
           <div>
             <img

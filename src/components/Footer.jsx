@@ -73,7 +73,7 @@ export const Footer = () => {
       </div>
       <span className="text-xs">
         Preventa exclusiva con tus Tarjetas Visa Galicia desde el lunes 3/7 a
-        las 10:00 am al miércoles 6/7 o hasta agotar stock con 20% de ahorro
+        las 10:00 am al miércoles 5/7 o hasta agotar stock con 20% de ahorro
         SOLO en la preventa y hasta 6 cuotas sin interés. Cartera de consumo.
         Promoción del 20% de ahorro y hasta 6 cuotas sin interés abonando con
         tarjetas VISA Galicia. Válida en el país desde el 03/07/2023 a las 10

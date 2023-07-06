@@ -1,6 +1,4 @@
-export const getAccess = async (
-  URL = "https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires"
-) => {
+export const getAccess = async ( URL = "https://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires") => {
   try {
     const response = await fetch(URL);
     console.log({response})
@@ -9,7 +7,7 @@ export const getAccess = async (
     }
 
     const data = await response.json();
-    return {data};
+    return { data };
   } catch (error) {
     throw new Error(error);
   }

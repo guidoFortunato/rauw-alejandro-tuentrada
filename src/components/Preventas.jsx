@@ -1,121 +1,83 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 import { getEnvVariables } from "../helpers/getEnvVariables";
 import { InfoContext } from "../context/InfoProvider";
 
-const { VITE_DATE } = getEnvVariables();
+const { VITE_DATE, VITE_API_GEO } = getEnvVariables();
 
 const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
-  const { isLoading, time } = useContext(InfoContext);
   const [button, setButton] = useState(false);
-  const [days, setDays] = useState("00");
-  const [hours, setHours] = useState("00");
-  const [minutes, setMinutes] = useState("00");
-  const [seconds, setSeconds] = useState("00");
-  let interval = useRef();
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [time, setTime] = useState(0);
 
-  // console.log({time})
-  // console.log({isLoading})
-
-  // console.log({ error });
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const response = await fetch(VITE_API_GEO);
-  //       if (!response.ok) {
-  //         setTime(new Date());
-  //         return;
-  //       }
-  //       const data = await response.json();
-  //       const currentDateTime = new Date(data.datetime);
-  //       setTime(currentDateTime);
-  //     } catch (error) {
-  //       throw new Error(error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-  //   getData();
-  // }, []);
+  // const { time } = useContext(InfoContext);
 
   useEffect(() => {
-    if (time === false) return;
-    const intervalo = interval.current;
-    startTimer();
-    return () => clearInterval(intervalo);
-  }, [time]);
-
-  const startTimer = () => {
-    let newTime = time.getTime();
-    interval = setInterval(() => {
-      const difference = dateToCompare.getTime() - newTime;
-      const dias = Math.floor(difference / (1000 * 60 * 60 * 24))
-        .toString()
-        .padStart(2, "0");
-      const horas = Math.floor(
-        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      )
-        .toString()
-        .padStart(2, "0");
-      const minutos = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60))
-        .toString()
-        .padStart(2, "0");
-      const segundos = Math.floor((difference % (1000 * 60)) / 1000)
-        .toString()
-        .padStart(2, "0");
-
-      if (difference < 0) {
-        clearInterval(interval);
-        setButton(true);
-      } else {
-        newTime = newTime + 1000;
-        setDays(dias);
-        setHours(horas);
-        setMinutes(minutos);
-        setSeconds(segundos);
+    if(button === true) return 
+    const getData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(VITE_API_GEO);
+        if (!response.ok) {
+          setTime(new Date());
+          return;
+        }
+        const data = await response.json();
+        const currentDateTime = new Date(data.datetime);
+        setTime(currentDateTime);
+      } catch (error) {
+        setTime(new Date());
+        throw new Error(error);
+      } finally {
+        setIsLoading(false);
       }
-    }, 1000);
-  };
+    };
+    getData();
+  }, [button]);
+
+  // console.log({ error });
+  useEffect(() => {
+    if (time === 0) return
+    // console.log('wuef worker')
+
+    const worker = new Worker(new URL("/src/helpers/countdownWorker.js", import.meta.url));
+
+    worker.onmessage = (event) => {
+      // console.log('worker')
+      const { dias, horas, minutos, segundos, button: countdownButton } = event.data;
+      setDays(dias);
+      setHours(horas);
+      setMinutes(minutos);
+      setSeconds(segundos);
+      setButton(countdownButton);
+    };
+    // console.log('post worker')
+    worker.postMessage({ dateToCompare, newTime: time.getTime() });
+
+    return () => {
+      // console.log('return worker')
+      worker.terminate();
+    };
+    // const intervalo = interval.current;
+    // startTimer();
+    // return () => clearInterval(intervalo);
+  }, [time]);
+  
 
   // if (isLoading) return <span></span>;
-
-  // if (error !== null)
-  //   return (
-  //     <div
-  //       className="flex t-5 justify-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
-  //       role="alert"
-  //     >
-  //       <svg
-  //         aria-hidden="true"
-  //         className="flex-shrink-0 inline w-5 h-5 mr-3"
-  //         fill="currentColor"
-  //         viewBox="0 0 20 20"
-  //         xmlns="http://www.w3.org/2000/svg"
-  //       >
-  //         <path
-  //           fillRule="evenodd"
-  //           d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-  //           clipRule="evenodd"
-  //         ></path>
-  //       </svg>
-  //       <span className="sr-only">Info</span>
-  //       <div>
-  //         Por favor intente nuevamente mas tarde
-  //       </div>
-  //     </div>
-  //   );
 
   return (
     <section className="text-white container mx-auto pt-10">
       <h3 className="text-2xl lg:text-4xl text-center pb-5">Venta General</h3>
-     
-       
+
       {!button ? (
         <>
           <div className="bg-contador pt-7">
@@ -128,7 +90,6 @@ export const Preventas = () => {
             </div>
           </div>
         </>
-         
       ) : (
         <>
           <div className="flex pt-5 justify-center px-2">
@@ -136,7 +97,7 @@ export const Preventas = () => {
           </div>
         </>
       )}
-      
+
       {/* {button ? (
         <BotonComprar />
       ) : (
@@ -145,14 +106,14 @@ export const Preventas = () => {
       <section className="text-white p-5 container mx-auto  lg:py-10">
         <div className="my-5">
           <div className="space-y-10">
-            
             <p className="text-base lg:text-lg">
               Recordá que los datos de la cuenta y la tarjeta de crédito/débito
               deben coincidir. <br /> <br />
-              No es necesario actualizar la página una vez que finalice el contador. <br /><br />
+              No es necesario actualizar la página una vez que finalice el
+              contador. <br />
+              <br />
               <strong>
-                
-                Anticipate: Registrate o actualiza tus datos haciendo 
+                Anticipate: Registrate o actualiza tus datos haciendo
                 <a
                   target="blank"
                   className="underline inline-block ml-1 hover:text-gray-300"
@@ -161,11 +122,30 @@ export const Preventas = () => {
                   CLICK AQUÍ
                 </a>
               </strong>
-            
-             
             </p>
             <hr className="border border-white  " />
-            {/* <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" /> */}
+            <p>
+              El cantante y compositor puertorriqueño Rauw Alejandro regresa a
+              Argentina con su nuevo viaje denominado Saturno World Tour 2023
+              que lo traerá el próximos 4 de noviembre para un show en Parque
+              Sarmiento. <br />
+              <br />
+              Con su nuevo single Baby Hello, el exponente multi-platino de la
+              música urbana en español Rauw Alejandro. <br />
+              Este tema promete ser un himno y transformar cada noche en una
+              fiesta inolvidable. <br />
+              <br />
+              Su nuevo álbum Saturno con colaboraciones con Arcángel, Playero y
+              Lyannno ha ratificado en plataformas digitales porque Rauw es uno
+              de los 100 artistas más escuchados en todo el mundo. <br />
+              <br />
+              Cantante, compositor, bailarín y productor, Rauw cuenta con
+              grandes éxitos como Todo de ti, Punto 40, Te felicito,
+              Desesperados, Fantasías, Lokera, Cúrame entre otros, Y este año se
+              atrevió a lanzar un EP en conjunto con Rosalía denominado RR del
+              cual destaca el single Beso.
+            </p>
+            <img style={{width:"200px",}}  src="https://tuentrada.com/concierto/rauw-alejandro/banco-galicia-logo.png" alt="" />
             <h3 className="text-2xl lg:text-4xl py-10">
               Ubicaciones y precios
             </h3>
@@ -173,8 +153,16 @@ export const Preventas = () => {
         </div>
         <div className="flex flex-col lg:flex-row justify-center items-center text-center my-10">
           <div className="flex flex-col justify-center px-1 lg:px-10 md:pt-5 ">
-            <CardsPreventa text={"Campo VIP"} precio={"$40.000"} total={"$40.000 + $6.000"} />
-            <CardsPreventa text={"Campo GENERAL"} precio={"$32.000"} total={"$32.000 + $4.800"} />
+            <CardsPreventa
+              text={"Campo VIP"}
+              precio={"$40.000"}
+              total={"$40.000 + $6.000"}
+            />
+            <CardsPreventa
+              text={"Campo GENERAL"}
+              precio={"$32.000"}
+              total={"$32.000 + $4.800"}
+            />
           </div>
           <div>
             <img

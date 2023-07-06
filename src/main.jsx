@@ -6,9 +6,9 @@ import "./index.css";
 import InfoProvider from "./context/InfoProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <InfoProvider>
       <App />
     </InfoProvider>
-  //</React.StrictMode>
+  </React.StrictMode>
 );

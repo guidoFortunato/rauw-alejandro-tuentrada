@@ -5,7 +5,7 @@ export const BotonComprar = () => {
   return (
     <>
       <a
-        href={`https://wallet.tuentrada.com/selection/event/date?productId=${VITE_ID_VENTA}`}
+        href={`https://eventosgen1.tuentrada.com/selection/event/date?productId=${VITE_ID_VENTA}`}
         target="_blank"
         rel="noreferrer"
         className="inline-block"

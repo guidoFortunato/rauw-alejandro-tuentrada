@@ -1,4 +1,4 @@
-import { DetalleSpotify, DetalleConcierto, Preventas, Footer } from "./";
+import {  DetalleConcierto, Preventas, Footer } from "./";
 
 export const MainEvent = () => {
   return (
@@ -8,7 +8,7 @@ export const MainEvent = () => {
         <DetalleConcierto />
       </div>
       <div className="bg-1 px-5 md:px-20  lg:px-32 ">
-        <DetalleSpotify />
+        {/* <DetalleSpotify /> */}
         <Footer />
       </div>
     </main>

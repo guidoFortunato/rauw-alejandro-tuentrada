@@ -3,7 +3,7 @@ export const getAccess = async (
 ) => {
   try {
     const response = await fetch(URL);
-
+    console.log({response})
     if (!response.ok) {
       throw new Error(`Error: ${response.status}. ${response.statusText}`);
     }

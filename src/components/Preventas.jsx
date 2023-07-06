@@ -1,50 +1,51 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { CardsPreventa } from "./CardsPreventa";
 import { CardsHorario } from "./CardsHorario";
 import { BotonComprar } from "./";
 import { getEnvVariables } from "../helpers/getEnvVariables";
+import { InfoContext } from "../context/InfoProvider";
 
-const { VITE_API_GEO, VITE_DATE } = getEnvVariables();
+const { VITE_DATE } = getEnvVariables();
 
 const dateToCompare = new Date(VITE_DATE);
 
 export const Preventas = () => {
-  const [button, setButton] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
-  const [time, setTime] = useState(new Date());
+  const { isLoading, time } = useContext(InfoContext);
+  const [button, setButton] = useState(false);
   const [days, setDays] = useState("00");
   const [hours, setHours] = useState("00");
   const [minutes, setMinutes] = useState("00");
   const [seconds, setSeconds] = useState("00");
   let interval = useRef();
 
+  // console.log({time})
+  // console.log({isLoading})
+
   // console.log({ error });
 
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch(VITE_API_GEO);
-        if (!response.ok) {
-          console.log('entra acá')
-          setIsLoading(false);
-          setTime(new Date());
-          return;
-        }
-        const data = await response.json();
-        const currentDateTime = new Date(data.datetime);
-        setTime(currentDateTime);
-      } catch (error) {
-        throw new Error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       const response = await fetch(VITE_API_GEO);
+  //       if (!response.ok) {
+  //         setTime(new Date());
+  //         return;
+  //       }
+  //       const data = await response.json();
+  //       const currentDateTime = new Date(data.datetime);
+  //       setTime(currentDateTime);
+  //     } catch (error) {
+  //       throw new Error(error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   getData();
+  // }, []);
 
   useEffect(() => {
-    if (!time) return;
+    if (time === false) return;
     const intervalo = interval.current;
     startTimer();
     return () => clearInterval(intervalo);
@@ -118,7 +119,7 @@ export const Preventas = () => {
       {!button ? (
         <>
           <div className="bg-contador pt-7">
-            <h3 className="text-2xl lg:text-4xl text-center">Próximamente</h3>
+            <h3 className="text-2xl lg:text-4xl text-center">Próximamente </h3>
             <div className="flex pt-5 justify-center px-2">
               <CardsHorario texto={"Día"} num={days} />
               <CardsHorario texto={"Hora"} num={hours} />

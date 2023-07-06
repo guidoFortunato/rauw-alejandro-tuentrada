@@ -1,4 +1,3 @@
-import { FooterNoAccess } from "./FooterNoAccess";
 
 export const MainNoEvent = () => {
   return (
@@ -26,9 +25,9 @@ export const MainNoEvent = () => {
           <strong>info@tuentrada.com</strong> para mas información
         </div>
       </div>
-      <div>
+      {/* <div>
         <FooterNoAccess />
-      </div>
+      </div> */}
     </main>
   );
 };
